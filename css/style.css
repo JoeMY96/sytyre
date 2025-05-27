@@ -1,0 +1,615 @@
+/* Author: W3layouts (Modified by AI for beautification)
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+
+:root {
+	--primary-color: #39c9da; /* Teal */
+	--secondary-color: #4b4a4b; /* Dark Grey */
+	--text-color: #504f50; /* Content Text Grey */
+	--light-text-color: #a8a8a8; /* Light Grey Text */
+	--background-light: #fafafa;
+	--background-grey: #f4f4f4;
+	--white-color: #ffffff;
+	--border-color: #e8e8e8;
+	--font-main: 'Open Sans', sans-serif;
+    --box-shadow-light: 0 4px 15px rgba(0,0,0,0.08);
+    --box-shadow-strong: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+body {
+	font-family: var(--font-main);
+	font-size: 16px; /* Base font size */
+	line-height: 1.7; /* Improved readability */
+	color: var(--text-color);
+	background-color: var(--white-color);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+	color: var(--text-color);
+    margin-top: 0;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+a {
+	color: var(--primary-color);
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+a:hover, a:focus {
+	color: var(--secondary-color);
+	text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1170px; /* Standard container width */
+}
+
+/* General Section Styling */
+.section-heading {
+    margin-bottom: 50px;
+    text-align: center;
+}
+.section-heading h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 15px;
+}
+.section-heading h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+.section-heading p {
+    font-size: 16px;
+    color: var(--light-text-color);
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*-- Header & Navigation --*/
+.header {
+	padding: 20px 0;
+    position: fixed; /* Fixed header */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(40, 40, 40, 0.9); /* Semi-transparent dark background */
+    transition: background-color 0.3s ease;
+}
+.header.scrolled { /* Optional: different style on scroll */
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+	float: left;
+	margin-top: 0; /* Adjusted for fixed header */
+}
+.logo h1 {
+	margin: 0;
+}
+.logo h1 a {
+	color: var(--primary-color);
+	font-size: 28px; /* Slightly reduced */
+	font-weight: 800;
+	text-decoration: none;
+    letter-spacing: 1px;
+}
+.logo h1 a:hover {
+	color: var(--white-color);
+}
+
+.navigation {
+	float: right;
+	margin-top: 5px; /* Adjusted for fixed header */
+}
+.navigation span.menu { /* Mobile menu icon */
+	display: none;
+    cursor: pointer;
+}
+.navigation span.menu img{
+    width: 28px; /* Adjust as needed */
+    height: 28px;
+    filter: brightness(0) invert(1); /* Make icon white if it's dark */
+}
+
+.navigation ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.navigation ul li {
+	display: inline-block;
+	margin: 0 15px; /* Spacing between nav items */
+}
+.navigation ul li:last-child {
+    margin-right: 0;
+}
+.navigation ul li a {
+	color: var(--white-color);
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 15px; /* Slightly increased */
+	padding: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+.navigation ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+.navigation ul li a:hover::after,
+.navigation ul li a.active::after { /* For active state, you'd need JS to add .active class */
+	width: 100%;
+}
+.navigation ul li a:hover,
+.navigation ul li a.active {
+	color: var(--primary-color);
+}
+
+
+/*-- banner --*/
+.banner {
+	background: url("../images/banner.jpg") no-repeat center center; /* Centered background */
+	background-size: cover;
+	position: relative;
+	min-height: 100vh; /* Full viewport height */
+	display: flex; /* For vertical centering */
+	align-items: center; /* For vertical centering */
+    padding-top: 80px; /* Account for fixed header */
+}
+.banner::before { /* Dark overlay for better text readability */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.5);
+}
+
+.banner-info {
+	position: relative; /* Remove absolute positioning */
+	z-index: 1;
+	text-align: center;
+    width: 100%;
+    max-width: 800px; /* Control width of banner text */
+    margin: 0 auto;
+}
+.banner-info h1 {
+	color: var(--white-color);
+	font-weight: 800;
+	font-size: 48px; /* Larger heading */
+	line-height: 1.3;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.banner-info .banner-subtext {
+    color: rgba(255,255,255,0.9);
+    font-size: 20px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.download {
+	text-align: center;
+	margin-top: 2em;
+}
+.download a, .getstart a, .btn-submit { /* Unified button style */
+	display: inline-block;
+	font-size: 16px;
+	text-decoration: none;
+	padding: 15px 35px;
+	font-weight: 700;
+	color: var(--white-color);
+	background: var(--primary-color);
+	border-radius: 5px;
+	border: 2px solid var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+.download a:hover, .getstart a:hover, .btn-submit:hover {
+	color: var(--primary-color);
+	background: var(--white-color);
+    border-color: var(--primary-color);
+	text-decoration: none;
+}
+.btn-submit { /* Specific adjustments if needed */
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+.btn-submit:hover {
+    color: var(--secondary-color);
+    background: var(--white-color);
+    border-color: var(--secondary-color);
+}
+
+
+/*-- about-us --*/
+.about-us {
+	padding: 80px 0;
+	background: var(--background-light);
+}
+.about-info.section-heading p { /* Overriding general section heading p width */
+    width: 70%;
+}
+.about-grids {
+    margin-top: 30px;
+}
+.about-left img {
+	width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-strong);
+}
+.about-right {
+    padding-left: 30px; /* Space between image and text */
+}
+.about-right h3 { /* Changed from h2 for better hierarchy */
+	margin-top: 0;
+	font-size: 24px;
+	font-weight: 700;
+	color: var(--text-color);
+	padding-bottom: 10px;
+}
+.border { /* Decorative border */
+	width: 100px; /* Increased width */
+	height: 3px;
+	background: var(--primary-color);
+	margin-bottom: 25px; /* Spacing after border */
+}
+.about-right p {
+	color: var(--light-text-color);
+	font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+.getstart {
+	margin-top: 30px;
+}
+
+/*-- portfolio --*/
+.portfolio {
+	padding: 80px 0;
+	background: var(--background-grey);
+	border-bottom: 1px solid var(--border-color);
+	border-top: 1px solid var(--border-color);
+}
+.portfolio-grid {
+    margin-bottom: 30px; /* Space between rows of portfolio items */
+}
+.portfolio-image {
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden; /* To contain image zoom effect */
+    box-shadow: var(--box-shadow-light);
+    transition: all 0.3s ease;
+}
+.portfolio-image:hover {
+    box-shadow: var(--box-shadow-strong);
+    transform: translateY(-5px);
+}
+.portfolio-image a {
+    display: block; /* Make the whole area clickable */
+}
+.port-img {
+    position: relative;
+    overflow: hidden;
+}
+.port-img img {
+	width: 100%;
+	display: block; /* Remove extra space below image */
+    transition: transform 0.4s ease;
+}
+.portfolio-image:hover .port-img img {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+.caption {
+	padding: 20px 15px;
+	text-align: center;
+}
+.caption h4 {
+	color: var(--text-color);
+	font-weight: 700;
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+.caption span {
+	color: var(--light-text-color);
+	font-size: 14px;
+	font-style: italic;
+}
+/* Pop-up styles - ensure they are distinct */
+.mfp-hide { display: none !important; }
+.image-top img { width: 100%; max-width: 600px; margin: 0 auto 20px; display: block; border-radius: 5px; }
+.image-top p { text-align: center; color: var(--text-color); font-size: 16px; padding: 0 20px; }
+.my-mfp-zoom-in .mfp-content { /* Custom class for zoom animation */
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease-out;
+}
+.my-mfp-zoom-in.mfp-ready .mfp-content {
+    opacity: 1;
+    transform: scale(1);
+}
+.my-mfp-zoom-in.mfp-removing .mfp-content {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+
+/*-- services / products --*/
+.services {
+	padding: 80px 0;
+	background: var(--background-light);
+}
+.service-grid {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.service-image { /* This is the card itself */
+	border: 1px solid var(--border-color);
+	padding: 0; /* Padding will be on content inside */
+	background: var(--white-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow-light);
+    transition: all 0.3s ease;
+}
+.service-image:hover {
+    box-shadow: var(--box-shadow-strong);
+    transform: translateY(-5px);
+}
+.service-image img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Set a max height for consistency */
+    object-fit: cover; /* Cover the area, might crop */
+    display: block;
+}
+.service-caption {
+    padding: 20px 15px;
+}
+.service-caption h4 {
+    font-size: 18px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+.service-caption p {
+    font-size: 14px;
+    color: var(--light-text-color);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/*-- contact-us --*/
+.contact-us {
+	padding: 80px 0;
+	background: var(--background-grey);
+	border-top: 1px solid var(--border-color);
+}
+.contact-form-area {
+    margin-top: 30px;
+}
+.contact-form-area .form-group {
+    margin-bottom: 20px;
+}
+.contact-form-area .form-control {
+    height: 50px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 15px;
+    box-shadow: none; /* Remove default bootstrap shadow */
+}
+.contact-form-area .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(57, 201, 218, 0.25);
+}
+.contact-form-area textarea.form-control {
+    height: auto; /* Let rows attribute define height */
+}
+.contact-email-info {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--text-color);
+}
+.contact-email-info a {
+    font-weight: 600;
+}
+
+/*-- footer --*/
+.footer {
+	background: var(--secondary-color);
+	padding: 40px 0;
+	color: var(--white-color);
+}
+.footer p {
+	font-size: 14px;
+	margin: 5px 0;
+	text-align: center;
+	color: rgba(255,255,255,0.8);
+}
+.footer p a {
+	color: var(--primary-color);
+	font-weight: 600;
+}
+.footer p a:hover {
+	color: var(--white-color);
+	text-decoration: underline;
+}
+
+/*-- to-top button --*/
+#toTop {
+	display: none;
+	text-decoration: none;
+	position: fixed;
+	bottom: 20px; /* Adjusted position */
+	right: 20px; /* Adjusted position */
+	overflow: hidden;
+	z-index: 999; 
+	width: 48px; /* Slightly larger */
+	height: 48px; /* Slightly larger */
+	border: none;
+	text-indent: 100%;
+	background: var(--primary-color) url("../images/arr.png") no-repeat center center; /* Ensure arr.png is suitable */
+    background-size: 20px; /* Adjust if arr.png is too big/small */
+    border-radius: 5px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+#toTop:hover {
+    opacity: 1;
+}
+#toTopHover { /* This might be redundant if #toTop itself handles hover */
+	display: none; /* Typically not needed if #toTop has hover state */
+}
+
+/*-- responsive media queries --*/
+@media(max-width:1199px){ /* Bootstrap lg breakpoint */
+    .banner-info h1 { font-size: 42px; }
+    .banner-info .banner-subtext { font-size: 18px; }
+}
+
+@media(max-width:991px){ /* Bootstrap md breakpoint */
+    .banner-info h1 { font-size: 36px; }
+    .banner-info .banner-subtext { font-size: 17px; }
+    .section-heading p { width: 80%; }
+    .about-right { padding-left: 15px; margin-top: 30px; } /* Stack on tablet */
+    .service-grid { flex: 0 0 50%; max-width: 50%; } /* 2 services per row */
+    .contact-right input[type=submit] { margin-left: 0; display: block; margin: 20px auto 0; }
+}
+
+@media (max-width: 767px){ /* Bootstrap sm breakpoint */
+	.header { padding: 15px 0; background-color: var(--secondary-color); /* Solid background for mobile earlier */ }
+	.logo { width: auto; } /* Let it size by content */
+    .logo h1 a { font-size: 24px; }
+	.navigation {
+		width: auto; /* Let menu icon size it */
+		margin-top: 2px; /* Align with logo */
+        position: static;
+	}
+	.navigation span.menu { /* Mobile menu icon */
+		display: block;
+	}
+	.navigation ul.nav1 { /* Mobile menu list */
+		display: none; /* Hidden by default */
+		position: absolute;
+		top: 100%; /* Below header */
+		left: 0;
+		width: 100%;
+		background: var(--secondary-color);
+		padding: 10px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+	}
+	.navigation ul.nav1 li {
+		display: block; /* Stack list items */
+		text-align: center;
+		margin: 0;
+	}
+	.navigation ul.nav1 li a {
+		display: block;
+		padding: 12px 15px;
+        color: var(--white-color);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+	}
+    .navigation ul li a::after { display: none; } /* Remove underline effect for mobile nav */
+    .navigation ul.nav1 li:last-child a { border-bottom: none; }
+    .navigation ul.nav1 li a:hover {
+        background-color: var(--primary-color);
+        color: var(--white-color) !important; /* Ensure hover color applies */
+    }
+
+	.banner { min-height: 70vh; padding-top: 70px; } /* Adjust for smaller header */
+	.banner-info h1 { font-size: 28px; }
+	.banner-info .banner-subtext { font-size: 16px; margin-bottom: 30px; }
+    .download a, .getstart a, .btn-submit { padding: 12px 25px; font-size: 14px; }
+
+    .section-heading h2 { font-size: 26px; }
+    .section-heading p { width: 90%; font-size: 15px; }
+
+    .about-left, .about-right { width: 100%; padding-left: 15px; padding-right: 15px; } /* Bootstrap col-md-6 becomes full width */
+    .about-right { margin-top: 30px; }
+
+	.portfolio-grid { width: 50%; } /* 2 per row on tablet */
+    .portfolio-grid:nth-child(odd) { padding-right: 7.5px; }
+    .portfolio-grid:nth-child(even) { padding-left: 7.5px; }
+
+	.service-grid { width: 50%; } /* 2 per row */
+
+    .contact-form-area .col-md-8.col-md-offset-2 { width: 100%; margin-left: 0; }
+}
+
+@media (max-width: 575px){ /* Extra small devices, phones */
+    .banner { min-height: 60vh; }
+    .banner-info h1 { font-size: 24px; }
+    .banner-info .banner-subtext { font-size: 15px; }
+
+    .section-heading h2 { font-size: 22px; }
+    .section-heading p { width: 100%; font-size: 14px; }
+
+    .portfolio-grid { width: 100%; padding-left: 15px; padding-right: 15px; } /* 1 per row */
+	.service-grid { width: 100%; } /* 1 per row */
+
+    .contact-form-area .form-control { height: 45px; font-size: 14px; }
+    .contact-form-area .row .col-md-6 { width: 100%; } /* Stack form fields */
+    .contact-form-area .row .col-md-6:first-child { margin-bottom: 20px; }
+    .footer { padding: 30px 0; }
+    .footer p { font-size: 13px; }
+}
+
+/* Fix for Bootstrap .row having negative margins causing horizontal scrollbar sometimes */
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+/* Ensure container doesn't get overridden by overly specific .row styles at small sizes */
+@media (max-width: 767px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/*
+Original styles for reference or if some specific old behaviors are needed:
+.about-info  h2, .portfolio-info  h2, .service-info h2, .contact-info  h2 (unified to .section-heading)
+span.para (removed, use br or multiple p tags)
+.border (retained and enhanced)
+.desc (portfolio hover, replaced with whole card hover and caption)
+.service-image hover states for icons (simplified to card hover)
+.contact-left, .contact-right (simplified to a single centered form area)
+Many specific media query overrides for height/overflow (tried to make layout more fluid)
+*/
